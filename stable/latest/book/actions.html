@@ -641,7 +641,7 @@ impl ObjectImpl for Window {
 </span><span class="boring">// Trait shared by all windows
 </span><span class="boring">impl WindowImpl for Window {}
 </span><span class="boring">
-</span><span class="boring">// Trait shared by all application
+</span><span class="boring">// Trait shared by all application windows
 </span><span class="boring">impl ApplicationWindowImpl for Window {}
 </span></code></pre>
 <p>This app behaves the same as our previous example, but it leads us to menu creation.</p>
@@ -1021,7 +1021,7 @@ impl Default for Window {
 </span><span class="boring">// Trait shared by all windows
 </span><span class="boring">impl WindowImpl for Window {}
 </span><span class="boring">
-</span><span class="boring">// Trait shared by all application
+</span><span class="boring">// Trait shared by all application windows
 </span><span class="boring">impl ApplicationWindowImpl for Window {}
 </span></code></pre>
 <p>Creating stateful actions from setting entries is so common that <code>Settings</code> provides a method for that exact purpose.
@@ -1314,7 +1314,7 @@ impl ObjectImpl for Window {
 </span><span class="boring">// Trait shared by all windows
 </span><span class="boring">impl WindowImpl for Window {}
 </span><span class="boring">
-</span><span class="boring">// Trait shared by all application
+</span><span class="boring">// Trait shared by all application windows
 </span><span class="boring">impl ApplicationWindowImpl for Window {}
 </span></code></pre>
 <p>Actions are extremely powerful and we are only scratching the surface here.

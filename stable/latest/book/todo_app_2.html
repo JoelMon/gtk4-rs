@@ -326,7 +326,7 @@ impl Default for Window {
 </span><span class="boring">    }
 </span><span class="boring">}
 </span><span class="boring">
-</span><span class="boring">// Trait shared by all application
+</span><span class="boring">// Trait shared by all application windows
 </span><span class="boring">impl ApplicationWindowImpl for Window {}
 </span></code></pre>
 <p>We also add the getter methods <code>is_completed</code> and <code>todo_data</code> to <code>TaskObject</code>.
@@ -1266,7 +1266,7 @@ impl WindowImpl for Window {
     }
 }
 <span class="boring">
-</span><span class="boring">// Trait shared by all application
+</span><span class="boring">// Trait shared by all application windows
 </span><span class="boring">impl ApplicationWindowImpl for Window {}
 </span></code></pre>
 <blockquote>
@@ -1590,7 +1590,7 @@ impl ObjectImpl for Window {
 </span><span class="boring">    }
 </span><span class="boring">}
 </span><span class="boring">
-</span><span class="boring">// Trait shared by all application
+</span><span class="boring">// Trait shared by all application windows
 </span><span class="boring">impl ApplicationWindowImpl for Window {}
 </span></code></pre>
 <p>Our To-Do app suddenly became much more useful.

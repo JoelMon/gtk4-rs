@@ -366,7 +366,7 @@ impl ObjectSubclass for Window {
 </span><span class="boring">// Trait shared by all windows
 </span><span class="boring">impl WindowImpl for Window {}
 </span><span class="boring">
-</span><span class="boring">// Trait shared by all application
+</span><span class="boring">// Trait shared by all application windows
 </span><span class="boring">impl ApplicationWindowImpl for Window {}
 </span></code></pre>
 <p><code>main.rs</code> also does not hold any surprises for us.</p>
@@ -782,7 +782,7 @@ impl ObjectImpl for Window {
 </span><span class="boring">// Trait shared by all windows
 </span><span class="boring">impl WindowImpl for Window {}
 </span><span class="boring">
-</span><span class="boring">// Trait shared by all application
+</span><span class="boring">// Trait shared by all application windows
 </span><span class="boring">impl ApplicationWindowImpl for Window {}
 </span></code></pre>
 <p>Since we need to access the list model quite often, we add the convenience method <code>Window::model</code> for that.

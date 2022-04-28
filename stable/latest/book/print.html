@@ -5203,7 +5203,7 @@ pub struct Window {
 </span><span class="boring">// Trait shared by all windows
 </span><span class="boring">impl WindowImpl for Window {}
 </span><span class="boring">
-</span><span class="boring">// Trait shared by all application
+</span><span class="boring">// Trait shared by all application windows
 </span><span class="boring">impl ApplicationWindowImpl for Window {}
 </span></code></pre>
 <p>Within the <code>ObjectSubclass</code> trait, we make sure that <code>NAME</code> corresponds to <code>class</code> in the template and <code>ParentType</code> corresponds to <code>parent</code> in the template.
@@ -5260,7 +5260,7 @@ impl ObjectSubclass for Window {
 </span><span class="boring">// Trait shared by all windows
 </span><span class="boring">impl WindowImpl for Window {}
 </span><span class="boring">
-</span><span class="boring">// Trait shared by all application
+</span><span class="boring">// Trait shared by all application windows
 </span><span class="boring">impl ApplicationWindowImpl for Window {}
 </span></code></pre>
 <p>Finally, we connect the callback to the &quot;clicked&quot; signal of <code>button</code> within <code>constructed</code>.
@@ -5317,7 +5317,7 @@ impl ObjectImpl for Window {
 </span><span class="boring">// Trait shared by all windows
 </span><span class="boring">impl WindowImpl for Window {}
 </span><span class="boring">
-</span><span class="boring">// Trait shared by all application
+</span><span class="boring">// Trait shared by all application windows
 </span><span class="boring">impl ApplicationWindowImpl for Window {}
 </span></code></pre>
 <h2 id="custom-widgets"><a class="header" href="#custom-widgets">Custom Widgets</a></h2>
@@ -5431,7 +5431,7 @@ pub struct Window {
 </span><span class="boring">// Trait shared by all windows
 </span><span class="boring">impl WindowImpl for Window {}
 </span><span class="boring">
-</span><span class="boring">// Trait shared by all application
+</span><span class="boring">// Trait shared by all application windows
 </span><span class="boring">impl ApplicationWindowImpl for Window {}
 </span></code></pre>
 <p>Finally, we can replace <code>GtkButton</code> with <code>MyGtkAppCustomButton</code> within our composite template.
@@ -5533,7 +5533,7 @@ impl Window {
 </span><span class="boring">// Trait shared by all windows
 </span><span class="boring">impl WindowImpl for Window {}
 </span><span class="boring">
-</span><span class="boring">// Trait shared by all application
+</span><span class="boring">// Trait shared by all application windows
 </span><span class="boring">impl ApplicationWindowImpl for Window {}
 </span></code></pre>
 <p>Then we have to bind the template callbacks with <a href="../docs/gtk4/subclass/widget/trait.CompositeTemplateCallbacksClass.html#tymethod.bind_template_callbacks"><code>bind_template_callbacks</code></a>.</p>
@@ -5590,7 +5590,7 @@ impl ObjectSubclass for Window {
 </span><span class="boring">// Trait shared by all windows
 </span><span class="boring">impl WindowImpl for Window {}
 </span><span class="boring">
-</span><span class="boring">// Trait shared by all application
+</span><span class="boring">// Trait shared by all application windows
 </span><span class="boring">impl ApplicationWindowImpl for Window {}
 </span></code></pre>
 <p>We can also access the state of our widget.
@@ -5652,7 +5652,7 @@ pub struct Window {
 </span><span class="boring">// Trait shared by all windows
 </span><span class="boring">impl WindowImpl for Window {}
 </span><span class="boring">
-</span><span class="boring">// Trait shared by all application
+</span><span class="boring">// Trait shared by all application windows
 </span><span class="boring">impl ApplicationWindowImpl for Window {}
 </span></code></pre>
 <p>In order to access the widget's state we have to add <code>swapped=&quot;true&quot;</code> to the <code>signal</code> tag.</p>
@@ -5733,7 +5733,7 @@ impl Window {
 </span><span class="boring">// Trait shared by all windows
 </span><span class="boring">impl WindowImpl for Window {}
 </span><span class="boring">
-</span><span class="boring">// Trait shared by all application
+</span><span class="boring">// Trait shared by all application windows
 </span><span class="boring">impl ApplicationWindowImpl for Window {}
 </span></code></pre>
 <h2 id="registering-types"><a class="header" href="#registering-types">Registering Types</a></h2>
@@ -5794,7 +5794,7 @@ pub struct Window {
 </span><span class="boring">// Trait shared by all windows
 </span><span class="boring">impl WindowImpl for Window {}
 </span><span class="boring">
-</span><span class="boring">// Trait shared by all application
+</span><span class="boring">// Trait shared by all application windows
 </span><span class="boring">impl ApplicationWindowImpl for Window {}
 </span></code></pre>
 <p>However, when we now run it GTK doesn't see <code>MyGtkAppCustomButton</code> as valid object type anymore.
@@ -5863,7 +5863,7 @@ impl ObjectSubclass for Window {
 </span><span class="boring">// Trait shared by all windows
 </span><span class="boring">impl WindowImpl for Window {}
 </span><span class="boring">
-</span><span class="boring">// Trait shared by all application
+</span><span class="boring">// Trait shared by all application windows
 </span><span class="boring">impl ApplicationWindowImpl for Window {}
 </span></code></pre>
 <p>We call the <code>ensure_type</code> method within <code>class_init</code> and voilà: our app works again.</p>
@@ -6112,7 +6112,7 @@ impl ObjectSubclass for Window {
 </span><span class="boring">// Trait shared by all windows
 </span><span class="boring">impl WindowImpl for Window {}
 </span><span class="boring">
-</span><span class="boring">// Trait shared by all application
+</span><span class="boring">// Trait shared by all application windows
 </span><span class="boring">impl ApplicationWindowImpl for Window {}
 </span></code></pre>
 <p><code>main.rs</code> also does not hold any surprises for us.</p>
@@ -6528,7 +6528,7 @@ impl ObjectImpl for Window {
 </span><span class="boring">// Trait shared by all windows
 </span><span class="boring">impl WindowImpl for Window {}
 </span><span class="boring">
-</span><span class="boring">// Trait shared by all application
+</span><span class="boring">// Trait shared by all application windows
 </span><span class="boring">impl ApplicationWindowImpl for Window {}
 </span></code></pre>
 <p>Since we need to access the list model quite often, we add the convenience method <code>Window::model</code> for that.
@@ -7586,7 +7586,7 @@ impl ObjectImpl for Window {
 </span><span class="boring">// Trait shared by all windows
 </span><span class="boring">impl WindowImpl for Window {}
 </span><span class="boring">
-</span><span class="boring">// Trait shared by all application
+</span><span class="boring">// Trait shared by all application windows
 </span><span class="boring">impl ApplicationWindowImpl for Window {}
 </span></code></pre>
 <p>This app behaves the same as our previous example, but it leads us to menu creation.</p>
@@ -7966,7 +7966,7 @@ impl Default for Window {
 </span><span class="boring">// Trait shared by all windows
 </span><span class="boring">impl WindowImpl for Window {}
 </span><span class="boring">
-</span><span class="boring">// Trait shared by all application
+</span><span class="boring">// Trait shared by all application windows
 </span><span class="boring">impl ApplicationWindowImpl for Window {}
 </span></code></pre>
 <p>Creating stateful actions from setting entries is so common that <code>Settings</code> provides a method for that exact purpose.
@@ -8259,7 +8259,7 @@ impl ObjectImpl for Window {
 </span><span class="boring">// Trait shared by all windows
 </span><span class="boring">impl WindowImpl for Window {}
 </span><span class="boring">
-</span><span class="boring">// Trait shared by all application
+</span><span class="boring">// Trait shared by all application windows
 </span><span class="boring">impl ApplicationWindowImpl for Window {}
 </span></code></pre>
 <p>Actions are extremely powerful and we are only scratching the surface here.
@@ -8452,7 +8452,7 @@ impl Default for Window {
 </span><span class="boring">    }
 </span><span class="boring">}
 </span><span class="boring">
-</span><span class="boring">// Trait shared by all application
+</span><span class="boring">// Trait shared by all application windows
 </span><span class="boring">impl ApplicationWindowImpl for Window {}
 </span></code></pre>
 <p>We also add the getter methods <code>is_completed</code> and <code>todo_data</code> to <code>TaskObject</code>.
@@ -9392,7 +9392,7 @@ impl WindowImpl for Window {
     }
 }
 <span class="boring">
-</span><span class="boring">// Trait shared by all application
+</span><span class="boring">// Trait shared by all application windows
 </span><span class="boring">impl ApplicationWindowImpl for Window {}
 </span></code></pre>
 <blockquote>
@@ -9716,7 +9716,7 @@ impl ObjectImpl for Window {
 </span><span class="boring">    }
 </span><span class="boring">}
 </span><span class="boring">
-</span><span class="boring">// Trait shared by all application
+</span><span class="boring">// Trait shared by all application windows
 </span><span class="boring">impl ApplicationWindowImpl for Window {}
 </span></code></pre>
 <p>Our To-Do app suddenly became much more useful.

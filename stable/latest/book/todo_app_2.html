@@ -248,7 +248,7 @@ pub struct Window {
     #[template_child]
     pub menu_button: TemplateChild&lt;MenuButton&gt;,
     #[template_child]
-    pub list_view: TemplateChild&lt;ListView&gt;,
+    pub tasks_list: TemplateChild&lt;ListView&gt;,
     pub current_tasks: RefCell&lt;Option&lt;gio::ListStore&gt;&gt;,
     pub settings: Settings,
 }
@@ -258,7 +258,7 @@ impl Default for Window {
         Window {
             entry: TemplateChild::default(),
             menu_button: TemplateChild::default(),
-            list_view: TemplateChild::default(),
+            tasks_list: TemplateChild::default(),
             current_tasks: RefCell::default(),
             settings: Settings::new(&quot;org.gtk-rs.Todo2&quot;),
         }
@@ -447,7 +447,7 @@ We also add an action which allows us to remove done tasks. </p>
 </span><span class="boring">        let filter_model =
 </span><span class="boring">            FilterListModel::new(Some(&amp;self.current_tasks()), self.filter().as_ref());
 </span><span class="boring">        let selection_model = NoSelection::new(Some(&amp;filter_model));
-</span><span class="boring">        self.imp().list_view.set_model(Some(&amp;selection_model));
+</span><span class="boring">        self.imp().tasks_list.set_model(Some(&amp;selection_model));
 </span><span class="boring">
 </span><span class="boring">        // Filter model whenever the value of the key &quot;filter&quot; changes
 </span><span class="boring">        self.imp().settings.connect_changed(
@@ -545,7 +545,7 @@ We also add an action which allows us to remove done tasks. </p>
 </span><span class="boring">        });
 </span><span class="boring">
 </span><span class="boring">        // Set the factory of the list view
-</span><span class="boring">        self.imp().list_view.set_factory(Some(&amp;factory));
+</span><span class="boring">        self.imp().tasks_list.set_factory(Some(&amp;factory));
 </span><span class="boring">    }
 </span><span class="boring">
 </span>    fn setup_actions(&amp;self) {
@@ -664,7 +664,7 @@ If the state is &quot;All&quot; nothing has to be filtered out, so we return <co
 </span><span class="boring">        let filter_model =
 </span><span class="boring">            FilterListModel::new(Some(&amp;self.current_tasks()), self.filter().as_ref());
 </span><span class="boring">        let selection_model = NoSelection::new(Some(&amp;filter_model));
-</span><span class="boring">        self.imp().list_view.set_model(Some(&amp;selection_model));
+</span><span class="boring">        self.imp().tasks_list.set_model(Some(&amp;selection_model));
 </span><span class="boring">
 </span><span class="boring">        // Filter model whenever the value of the key &quot;filter&quot; changes
 </span><span class="boring">        self.imp().settings.connect_changed(
@@ -762,7 +762,7 @@ If the state is &quot;All&quot; nothing has to be filtered out, so we return <co
 </span><span class="boring">        });
 </span><span class="boring">
 </span><span class="boring">        // Set the factory of the list view
-</span><span class="boring">        self.imp().list_view.set_factory(Some(&amp;factory));
+</span><span class="boring">        self.imp().tasks_list.set_factory(Some(&amp;factory));
 </span><span class="boring">    }
 </span><span class="boring">
 </span><span class="boring">    fn setup_actions(&amp;self) {
@@ -879,7 +879,7 @@ Whenever the state of the key &quot;filter&quot; changes, we call the method <co
         let filter_model =
             FilterListModel::new(Some(&amp;self.current_tasks()), self.filter().as_ref());
         let selection_model = NoSelection::new(Some(&amp;filter_model));
-        self.imp().list_view.set_model(Some(&amp;selection_model));
+        self.imp().tasks_list.set_model(Some(&amp;selection_model));
 
         // Filter model whenever the value of the key &quot;filter&quot; changes
         self.imp().settings.connect_changed(
@@ -977,7 +977,7 @@ Whenever the state of the key &quot;filter&quot; changes, we call the method <co
 </span><span class="boring">        });
 </span><span class="boring">
 </span><span class="boring">        // Set the factory of the list view
-</span><span class="boring">        self.imp().list_view.set_factory(Some(&amp;factory));
+</span><span class="boring">        self.imp().tasks_list.set_factory(Some(&amp;factory));
 </span><span class="boring">    }
 </span><span class="boring">
 </span><span class="boring">    fn setup_actions(&amp;self) {
@@ -1191,7 +1191,7 @@ Then we serialize the <code>Vec</code> and store the data as a json file.</p>
 </span><span class="boring">    #[template_child]
 </span><span class="boring">    pub menu_button: TemplateChild&lt;MenuButton&gt;,
 </span><span class="boring">    #[template_child]
-</span><span class="boring">    pub list_view: TemplateChild&lt;ListView&gt;,
+</span><span class="boring">    pub tasks_list: TemplateChild&lt;ListView&gt;,
 </span><span class="boring">    pub current_tasks: RefCell&lt;Option&lt;gio::ListStore&gt;&gt;,
 </span><span class="boring">    pub settings: Settings,
 </span><span class="boring">}
@@ -1201,7 +1201,7 @@ Then we serialize the <code>Vec</code> and store the data as a json file.</p>
 </span><span class="boring">        Window {
 </span><span class="boring">            entry: TemplateChild::default(),
 </span><span class="boring">            menu_button: TemplateChild::default(),
-</span><span class="boring">            list_view: TemplateChild::default(),
+</span><span class="boring">            tasks_list: TemplateChild::default(),
 </span><span class="boring">            current_tasks: RefCell::default(),
 </span><span class="boring">            settings: Settings::new(&quot;org.gtk-rs.Todo2&quot;),
 </span><span class="boring">        }
@@ -1363,7 +1363,7 @@ It might be the first time that we started the app and therefore there is no for
 </span><span class="boring">        let filter_model =
 </span><span class="boring">            FilterListModel::new(Some(&amp;self.current_tasks()), self.filter().as_ref());
 </span><span class="boring">        let selection_model = NoSelection::new(Some(&amp;filter_model));
-</span><span class="boring">        self.imp().list_view.set_model(Some(&amp;selection_model));
+</span><span class="boring">        self.imp().tasks_list.set_model(Some(&amp;selection_model));
 </span><span class="boring">
 </span><span class="boring">        // Filter model whenever the value of the key &quot;filter&quot; changes
 </span><span class="boring">        self.imp().settings.connect_changed(
@@ -1461,7 +1461,7 @@ It might be the first time that we started the app and therefore there is no for
 </span><span class="boring">        });
 </span><span class="boring">
 </span><span class="boring">        // Set the factory of the list view
-</span><span class="boring">        self.imp().list_view.set_factory(Some(&amp;factory));
+</span><span class="boring">        self.imp().tasks_list.set_factory(Some(&amp;factory));
 </span><span class="boring">    }
 </span><span class="boring">
 </span><span class="boring">    fn setup_actions(&amp;self) {
@@ -1516,7 +1516,7 @@ It might be the first time that we started the app and therefore there is no for
 </span><span class="boring">    #[template_child]
 </span><span class="boring">    pub menu_button: TemplateChild&lt;MenuButton&gt;,
 </span><span class="boring">    #[template_child]
-</span><span class="boring">    pub list_view: TemplateChild&lt;ListView&gt;,
+</span><span class="boring">    pub tasks_list: TemplateChild&lt;ListView&gt;,
 </span><span class="boring">    pub current_tasks: RefCell&lt;Option&lt;gio::ListStore&gt;&gt;,
 </span><span class="boring">    pub settings: Settings,
 </span><span class="boring">}
@@ -1526,7 +1526,7 @@ It might be the first time that we started the app and therefore there is no for
 </span><span class="boring">        Window {
 </span><span class="boring">            entry: TemplateChild::default(),
 </span><span class="boring">            menu_button: TemplateChild::default(),
-</span><span class="boring">            list_view: TemplateChild::default(),
+</span><span class="boring">            tasks_list: TemplateChild::default(),
 </span><span class="boring">            current_tasks: RefCell::default(),
 </span><span class="boring">            settings: Settings::new(&quot;org.gtk-rs.Todo2&quot;),
 </span><span class="boring">        }

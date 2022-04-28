@@ -173,7 +173,7 @@ Something like this:</p>
             &lt;property name=&quot;min-content-height&quot;&gt;360&lt;/property&gt;
             &lt;property name=&quot;vexpand&quot;&gt;true&lt;/property&gt;
             &lt;child&gt;
-              &lt;object class=&quot;GtkListView&quot; id=&quot;list_view&quot; /&gt;
+              &lt;object class=&quot;GtkListView&quot; id=&quot;tasks_list&quot; /&gt;
             &lt;/child&gt;
           &lt;/object&gt;
         &lt;/child&gt;
@@ -227,7 +227,7 @@ As usual, we have to list all <a href="https://docs.gtk.org/gtk4/class.Applicati
 </span><span class="boring">
 </span><span class="boring">        // Wrap model with selection and pass it to the list view
 </span><span class="boring">        let selection_model = NoSelection::new(Some(&amp;self.current_tasks()));
-</span><span class="boring">        self.imp().list_view.set_model(Some(&amp;selection_model));
+</span><span class="boring">        self.imp().tasks_list.set_model(Some(&amp;selection_model));
 </span><span class="boring">    }
 </span><span class="boring">
 </span><span class="boring">    fn setup_callbacks(&amp;self) {
@@ -303,7 +303,7 @@ As usual, we have to list all <a href="https://docs.gtk.org/gtk4/class.Applicati
 </span><span class="boring">        });
 </span><span class="boring">
 </span><span class="boring">        // Set the factory of the list view
-</span><span class="boring">        self.imp().list_view.set_factory(Some(&amp;factory));
+</span><span class="boring">        self.imp().tasks_list.set_factory(Some(&amp;factory));
 </span><span class="boring">    }
 </span><span class="boring">}
 </span></code></pre>
@@ -327,7 +327,7 @@ pub struct Window {
     #[template_child]
     pub entry: TemplateChild&lt;Entry&gt;,
     #[template_child]
-    pub list_view: TemplateChild&lt;ListView&gt;,
+    pub tasks_list: TemplateChild&lt;ListView&gt;,
     pub current_tasks: RefCell&lt;Option&lt;gio::ListStore&gt;&gt;,
 }
 
@@ -743,7 +743,7 @@ We override the <code>imp::Window::constructed</code> in order to set up window 
 </span><span class="boring">    #[template_child]
 </span><span class="boring">    pub entry: TemplateChild&lt;Entry&gt;,
 </span><span class="boring">    #[template_child]
-</span><span class="boring">    pub list_view: TemplateChild&lt;ListView&gt;,
+</span><span class="boring">    pub tasks_list: TemplateChild&lt;ListView&gt;,
 </span><span class="boring">    pub current_tasks: RefCell&lt;Option&lt;gio::ListStore&gt;&gt;,
 </span><span class="boring">}
 </span><span class="boring">
@@ -831,7 +831,7 @@ Then we store a reference to the model in <code>imp::Window</code> as well as in
 
         // Wrap model with selection and pass it to the list view
         let selection_model = NoSelection::new(Some(&amp;self.current_tasks()));
-        self.imp().list_view.set_model(Some(&amp;selection_model));
+        self.imp().tasks_list.set_model(Some(&amp;selection_model));
     }
 <span class="boring">
 </span><span class="boring">    fn setup_callbacks(&amp;self) {
@@ -907,7 +907,7 @@ Then we store a reference to the model in <code>imp::Window</code> as well as in
 </span><span class="boring">        });
 </span><span class="boring">
 </span><span class="boring">        // Set the factory of the list view
-</span><span class="boring">        self.imp().list_view.set_factory(Some(&amp;factory));
+</span><span class="boring">        self.imp().tasks_list.set_factory(Some(&amp;factory));
 </span><span class="boring">    }
 </span><span class="boring">}
 </span></code></pre>
@@ -957,7 +957,7 @@ Finally, the entry will be cleared.</p>
 </span><span class="boring">
 </span><span class="boring">        // Wrap model with selection and pass it to the list view
 </span><span class="boring">        let selection_model = NoSelection::new(Some(&amp;self.current_tasks()));
-</span><span class="boring">        self.imp().list_view.set_model(Some(&amp;selection_model));
+</span><span class="boring">        self.imp().tasks_list.set_model(Some(&amp;selection_model));
 </span><span class="boring">    }
 </span><span class="boring">
 </span>    fn setup_callbacks(&amp;self) {
@@ -1033,7 +1033,7 @@ Finally, the entry will be cleared.</p>
 </span><span class="boring">        });
 </span><span class="boring">
 </span><span class="boring">        // Set the factory of the list view
-</span><span class="boring">        self.imp().list_view.set_factory(Some(&amp;factory));
+</span><span class="boring">        self.imp().tasks_list.set_factory(Some(&amp;factory));
 </span><span class="boring">    }
 </span><span class="boring">}
 </span></code></pre>
@@ -1089,7 +1089,7 @@ We will need to unbind them manually when they are no longer needed.</p>
 </span><span class="boring">
 </span><span class="boring">        // Wrap model with selection and pass it to the list view
 </span><span class="boring">        let selection_model = NoSelection::new(Some(&amp;self.current_tasks()));
-</span><span class="boring">        self.imp().list_view.set_model(Some(&amp;selection_model));
+</span><span class="boring">        self.imp().tasks_list.set_model(Some(&amp;selection_model));
 </span><span class="boring">    }
 </span><span class="boring">
 </span><span class="boring">    fn setup_callbacks(&amp;self) {
@@ -1165,7 +1165,7 @@ We will need to unbind them manually when they are no longer needed.</p>
         });
 
         // Set the factory of the list view
-        self.imp().list_view.set_factory(Some(&amp;factory));
+        self.imp().tasks_list.set_factory(Some(&amp;factory));
     }
 <span class="boring">}
 </span></code></pre>

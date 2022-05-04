@@ -197,6 +197,10 @@ To do this, execute the command belonging to the distribution you are using.</p>
 <p>Arch and derivatives:</p>
 <pre><code>sudo pacman -S gtk4 base-devel
 </code></pre>
+<p>Nix:<br />
+Add the following inputs to your derivation:</p>
+<pre><code>gtk4, gcc
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="macos"><a class="header" href="#macos">macOS</a></h1>
 <p>First install rustup.
 You can find the up-to-date instructions on <a href="https://rustup.rs">rustup.rs</a>.</p>
@@ -1133,7 +1137,7 @@ impl CustomButton {
 </span><span class="boring">    }
 </span><span class="boring">}
 </span></code></pre>
-<p><a href="http://gtk-rs.org/gtk-rs-core/stable/latest/docs/glib/macro.wrapper.html"><code>glib::wrapper!</code></a> implements the same traits that our <code>ParentType</code> implements.
+<p><a href="https://gtk-rs.org/gtk-rs-core/stable/latest/docs/glib/macro.wrapper.html"><code>glib::wrapper!</code></a> implements the same traits that our <code>ParentType</code> implements.
 Theoretically that would mean that the <code>ParentType</code> is also the only thing we have to specify here.
 Unfortunately, nobody found yet a good way to do that.
 Which is why, as of today, subclassing of GObjects in Rust requires to mention all ancestors and interfaces apart from <code>GObject</code> and <code>GInitiallyUnowned</code>.
@@ -1293,7 +1297,7 @@ Your browser does not support the video tag.
 <div style="break-before: page; page-break-before: always;"></div><h1 id="generic-values"><a class="header" href="#generic-values">Generic Values</a></h1>
 <p>Some GObject-related functions rely on generic values for their arguments or return parameters.
 Since GObject introspection works through a C interface, these functions cannot rely on any powerful Rust concepts.
-In these cases <a href="http://gtk-rs.org/gtk-rs-core/stable/latest/docs/glib/value/struct.Value.html"><code>glib::Value</code></a> or <a href="https://gtk-rs.org/gtk-rs-core/stable/latest/docs/glib/variant/struct.Variant.html"><code>glib::Variant</code></a> are used.</p>
+In these cases <a href="https://gtk-rs.org/gtk-rs-core/stable/latest/docs/glib/value/struct.Value.html"><code>glib::Value</code></a> or <a href="https://gtk-rs.org/gtk-rs-core/stable/latest/docs/glib/variant/struct.Variant.html"><code>glib::Variant</code></a> are used.</p>
 <h2 id="value"><a class="header" href="#value">Value</a></h2>
 <p>Let's start with <code>Value</code>.
 Conceptually, a <code>Value</code> is similar to a Rust <code>enum</code> defined like this:</p>
@@ -1562,7 +1566,7 @@ That is why <code>gtk-rs</code> provides corresponding <a href="../docs/gtk4/str
 </span><span class="boring">    window.present();
 </span><span class="boring">}
 </span></code></pre>
-<p>Alternatively, we can use the general <a href="http://gtk-rs.org/gtk-rs-core/stable/latest/docs/glib/object/trait.ObjectExt.html#tymethod.property"><code>property</code></a> and <a href="http://gtk-rs.org/gtk-rs-core/stable/latest/docs/glib/object/trait.ObjectExt.html#tymethod.set_property"><code>set_property</code></a> methods.
+<p>Alternatively, we can use the general <a href="https://gtk-rs.org/gtk-rs-core/stable/latest/docs/glib/object/trait.ObjectExt.html#tymethod.property"><code>property</code></a> and <a href="https://gtk-rs.org/gtk-rs-core/stable/latest/docs/glib/object/trait.ObjectExt.html#tymethod.set_property"><code>set_property</code></a> methods.
 We use the <a href="https://matematikaadit.github.io/posts/rust-turbofish.html">turbofish</a> syntax to specify the type if it cannot be inferred.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/gobject_properties/2/main.rs">listings/gobject_properties/2/main.rs</a></p>
 <pre><code class="language-rust  no_run noplayground"><span class="boring">use gtk::prelude::*;
@@ -1619,7 +1623,7 @@ We use the <a href="https://matematikaadit.github.io/posts/rust-turbofish.html">
 </span></code></pre>
 <p>Both <code>property</code> and <code>set_property</code> panic if the property does not exist, has the wrong type or has the wrong permissions.
 This is fine in most situations where these cases are hard-coded within the program.
-If this does not apply for your program you might want to use <a href="http://gtk-rs.org/gtk-rs-core/stable/latest/docs/glib/object/trait.ObjectExt.html#tymethod.try_property"><code>try_property</code></a> and <a href="http://gtk-rs.org/gtk-rs-core/stable/latest/docs/glib/object/trait.ObjectExt.html#tymethod.try_set_property"><code>try_set_property</code></a> instead.</p>
+If this does not apply for your program you might want to use <a href="https://gtk-rs.org/gtk-rs-core/stable/latest/docs/glib/object/trait.ObjectExt.html#tymethod.try_property"><code>try_property</code></a> and <a href="https://gtk-rs.org/gtk-rs-core/stable/latest/docs/glib/object/trait.ObjectExt.html#tymethod.try_set_property"><code>try_set_property</code></a> instead.</p>
 <p>Properties can not only be accessed via getters &amp; setters, they can also be bound to each other.
 Let's see how that would look like for two <code>Switch</code> instances.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/gobject_properties/3/main.rs">listings/gobject_properties/3/main.rs</a></p>
@@ -1677,7 +1681,7 @@ Let's see how that would look like for two <code>Switch</code> instances.</p>
 </span><span class="boring">}
 </span></code></pre>
 <p>In our case, we want to bind the &quot;state&quot; property of <code>switch_1</code> to the &quot;state&quot; property of <code>switch_2</code>.
-We also want the binding to be bidirectional, so we specify this with the <a href="http://gtk-rs.org/gtk-rs-core/stable/latest/docs/glib/struct.BindingFlags.html"><code>BindingFlags</code></a>.</p>
+We also want the binding to be bidirectional, so we specify this with the <a href="https://gtk-rs.org/gtk-rs-core/stable/latest/docs/glib/struct.BindingFlags.html"><code>BindingFlags</code></a>.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/gobject_properties/3/main.rs">listings/gobject_properties/3/main.rs</a></p>
 <pre><code class="language-rust  no_run noplayground"><span class="boring">use glib::BindingFlags;
 </span><span class="boring">use gtk::{glib, Align, Orientation, Switch};
@@ -2031,7 +2035,7 @@ impl ButtonImpl for CustomButton {
 </span><span class="boring">}
 </span></code></pre>
 <p>We have already seen that bound properties don't necessarily have to be of the same type.
-By leveraging <a href="http://gtk-rs.org/gtk-rs-core/stable/latest/docs/glib/object/struct.BindingBuilder.html#method.transform_to"><code>transform_to</code></a> and <a href="http://gtk-rs.org/gtk-rs-core/stable/latest/docs/glib/object/struct.BindingBuilder.html#method.transform_from"><code>transform_from</code></a>, we can assure that <code>button_2</code> always displays a number which is 1 higher than the number of <code>button_1</code>.</p>
+By leveraging <a href="https://gtk-rs.org/gtk-rs-core/stable/latest/docs/glib/object/struct.BindingBuilder.html#method.transform_to"><code>transform_to</code></a> and <a href="https://gtk-rs.org/gtk-rs-core/stable/latest/docs/glib/object/struct.BindingBuilder.html#method.transform_from"><code>transform_from</code></a>, we can assure that <code>button_2</code> always displays a number which is 1 higher than the number of <code>button_1</code>.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/gobject_properties/4/main.rs">listings/gobject_properties/4/main.rs</a></p>
 <pre><code class="language-rust  no_run noplayground"><span class="boring">mod custom_button;
 </span><span class="boring">
@@ -2828,7 +2832,7 @@ This is why we specify <code>@default-return</code> as <code>Continue(False)</co
 </blockquote>
 <p>Spawning threads is not the only way to run operations asynchronously.
 You can also let the main loop take care of running <a href="https://rust-lang.github.io/async-book/"><code>async</code></a> functions.
-If you do that from the main thread use <a href="http://gtk-rs.org/gtk-rs-core/stable/latest/docs/glib/struct.MainContext.html#method.spawn_local"><code>spawn_local</code></a>, from other threads <a href="http://gtk-rs.org/gtk-rs-core/stable/latest/docs/glib/struct.MainContext.html#method.spawn"><code>spawn</code></a> has to be used.
+If you do that from the main thread use <a href="https://gtk-rs.org/gtk-rs-core/stable/latest/docs/glib/struct.MainContext.html#method.spawn_local"><code>spawn_local</code></a>, from other threads <a href="https://gtk-rs.org/gtk-rs-core/stable/latest/docs/glib/struct.MainContext.html#method.spawn"><code>spawn</code></a> has to be used.
 The converted code looks and behaves very similar to the multi-threaded code.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/main_event_loop/4/main.rs">listings/main_event_loop/4/main.rs</a></p>
 <pre><code class="language-rust  no_run noplayground"><span class="boring">use glib::{clone, timeout_future_seconds, Continue, MainContext, PRIORITY_DEFAULT};
@@ -4975,7 +4979,7 @@ Here we can use <a href="../docs/gtk4/struct.StringObject.html"><code>StringObje
 <h2 id="conclusion"><a class="header" href="#conclusion">Conclusion</a></h2>
 <p>We now know how to display a list of data.
 Small amount of elements can be handled by <code>ListBox</code> or <code>FlowBox</code>.
-These widgets are easy to use and can, if necessary, be bound to a model such as <a href="http://gtk-rs.org/gtk-rs-core/stable/latest/docs/gio/struct.ListStore.html"><code>gio::ListStore</code></a>.
+These widgets are easy to use and can, if necessary, be bound to a model such as <a href="https://gtk-rs.org/gtk-rs-core/stable/latest/docs/gio/struct.ListStore.html"><code>gio::ListStore</code></a>.
 Their data can then be modified, sorted and filtered more easily.
 However, if we need the widgets to be scalable, we still need to use <a href="../docs/gtk4/struct.ListView.html"><code>ListView</code></a>, <a href="../docs/gtk4/struct.ColumnView.html"><code>ColumnView</code></a> or <a href="../docs/gtk4/struct.GridView.html"><code>GridView</code></a> instead.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="composite-templates"><a class="header" href="#composite-templates">Composite Templates</a></h1>

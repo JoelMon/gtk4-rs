@@ -8442,12 +8442,12 @@ impl Default for Window {
 </span><span class="boring">        let mut position = 0;
 </span><span class="boring">        while let Some(item) = window.current_tasks().item(position) {
 </span><span class="boring">            // Get `TaskObject` from `glib::Object`
-</span><span class="boring">            let todo_data = item
+</span><span class="boring">            let task_data = item
 </span><span class="boring">                .downcast_ref::&lt;TaskObject&gt;()
 </span><span class="boring">                .expect(&quot;The object needs to be of type `TaskObject`.&quot;)
-</span><span class="boring">                .todo_data();
+</span><span class="boring">                .task_data();
 </span><span class="boring">            // Add todo data to vector and increase position
-</span><span class="boring">            tasks.push(todo_data);
+</span><span class="boring">            tasks.push(task_data);
 </span><span class="boring">            position += 1;
 </span><span class="boring">        }
 </span><span class="boring">
@@ -8486,8 +8486,12 @@ We will make use of them in the following snippets.</p>
         self.imp().data.borrow().completed
     }
 
-    pub fn todo_data(&amp;self) -&gt; TaskData {
+    pub fn task_data(&amp;self) -&gt; TaskData {
         self.imp().data.borrow().clone()
+    }
+
+    pub fn from_task_data(task_data: TaskData) -&gt; Self {
+        Self::new(task_data.completed, task_data.content)
     }
 }
 <span class="boring">
@@ -8597,10 +8601,8 @@ We also add an action which allows us to remove done tasks. </p>
 </span><span class="boring">        let tasks: Vec&lt;TaskData&gt; = self.imp().settings.get(&quot;tasks&quot;);
 </span><span class="boring">
 </span><span class="boring">        // Convert `Vec&lt;TaskData&gt;` to `Vec&lt;TaskObject&gt;`
-</span><span class="boring">        let task_objects: Vec&lt;TaskObject&gt; = tasks
-</span><span class="boring">            .into_iter()
-</span><span class="boring">            .map(|todo_data| TaskObject::new(todo_data.completed, todo_data.content))
-</span><span class="boring">            .collect();
+</span><span class="boring">        let task_objects: Vec&lt;TaskObject&gt; =
+</span><span class="boring">            tasks.into_iter().map(TaskObject::from_task_data).collect();
 </span><span class="boring">
 </span><span class="boring">        // Insert restored objects into model
 </span><span class="boring">        self.current_tasks().splice(0, 0, &amp;task_objects);
@@ -8814,10 +8816,8 @@ If the state is &quot;All&quot; nothing has to be filtered out, so we return <co
 </span><span class="boring">        let tasks: Vec&lt;TaskData&gt; = self.imp().settings.get(&quot;tasks&quot;);
 </span><span class="boring">
 </span><span class="boring">        // Convert `Vec&lt;TaskData&gt;` to `Vec&lt;TaskObject&gt;`
-</span><span class="boring">        let task_objects: Vec&lt;TaskObject&gt; = tasks
-</span><span class="boring">            .into_iter()
-</span><span class="boring">            .map(|todo_data| TaskObject::new(todo_data.completed, todo_data.content))
-</span><span class="boring">            .collect();
+</span><span class="boring">        let task_objects: Vec&lt;TaskObject&gt; =
+</span><span class="boring">            tasks.into_iter().map(TaskObject::from_task_data).collect();
 </span><span class="boring">
 </span><span class="boring">        // Insert restored objects into model
 </span><span class="boring">        self.current_tasks().splice(0, 0, &amp;task_objects);
@@ -9029,10 +9029,8 @@ Whenever the state of the key &quot;filter&quot; changes, we call the method <co
 </span><span class="boring">        let tasks: Vec&lt;TaskData&gt; = self.imp().settings.get(&quot;tasks&quot;);
 </span><span class="boring">
 </span><span class="boring">        // Convert `Vec&lt;TaskData&gt;` to `Vec&lt;TaskObject&gt;`
-</span><span class="boring">        let task_objects: Vec&lt;TaskObject&gt; = tasks
-</span><span class="boring">            .into_iter()
-</span><span class="boring">            .map(|todo_data| TaskObject::new(todo_data.completed, todo_data.content))
-</span><span class="boring">            .collect();
+</span><span class="boring">        let task_objects: Vec&lt;TaskObject&gt; =
+</span><span class="boring">            tasks.into_iter().map(TaskObject::from_task_data).collect();
 </span><span class="boring">
 </span><span class="boring">        // Insert restored objects into model
 </span><span class="boring">        self.current_tasks().splice(0, 0, &amp;task_objects);
@@ -9290,8 +9288,12 @@ Doing so allows us to derive <code>glib::Variant</code> for <code>TaskData</code
 </span><span class="boring">        self.imp().data.borrow().completed
 </span><span class="boring">    }
 </span><span class="boring">
-</span><span class="boring">    pub fn todo_data(&amp;self) -&gt; TaskData {
+</span><span class="boring">    pub fn task_data(&amp;self) -&gt; TaskData {
 </span><span class="boring">        self.imp().data.borrow().clone()
+</span><span class="boring">    }
+</span><span class="boring">
+</span><span class="boring">    pub fn from_task_data(task_data: TaskData) -&gt; Self {
+</span><span class="boring">        Self::new(task_data.completed, task_data.content)
 </span><span class="boring">    }
 </span><span class="boring">}
 </span><span class="boring">
@@ -9385,12 +9387,12 @@ impl WindowImpl for Window {
         let mut position = 0;
         while let Some(item) = window.current_tasks().item(position) {
             // Get `TaskObject` from `glib::Object`
-            let todo_data = item
+            let task_data = item
                 .downcast_ref::&lt;TaskObject&gt;()
                 .expect(&quot;The object needs to be of type `TaskObject`.&quot;)
-                .todo_data();
+                .task_data();
             // Add todo data to vector and increase position
-            tasks.push(todo_data);
+            tasks.push(task_data);
             position += 1;
         }
 
@@ -9513,10 +9515,8 @@ It might be the first time that we started the app and therefore there is no for
         let tasks: Vec&lt;TaskData&gt; = self.imp().settings.get(&quot;tasks&quot;);
 
         // Convert `Vec&lt;TaskData&gt;` to `Vec&lt;TaskObject&gt;`
-        let task_objects: Vec&lt;TaskObject&gt; = tasks
-            .into_iter()
-            .map(|todo_data| TaskObject::new(todo_data.completed, todo_data.content))
-            .collect();
+        let task_objects: Vec&lt;TaskObject&gt; =
+            tasks.into_iter().map(TaskObject::from_task_data).collect();
 
         // Insert restored objects into model
         self.current_tasks().splice(0, 0, &amp;task_objects);
@@ -9710,12 +9710,12 @@ impl ObjectImpl for Window {
 </span><span class="boring">        let mut position = 0;
 </span><span class="boring">        while let Some(item) = window.current_tasks().item(position) {
 </span><span class="boring">            // Get `TaskObject` from `glib::Object`
-</span><span class="boring">            let todo_data = item
+</span><span class="boring">            let task_data = item
 </span><span class="boring">                .downcast_ref::&lt;TaskObject&gt;()
 </span><span class="boring">                .expect(&quot;The object needs to be of type `TaskObject`.&quot;)
-</span><span class="boring">                .todo_data();
+</span><span class="boring">                .task_data();
 </span><span class="boring">            // Add todo data to vector and increase position
-</span><span class="boring">            tasks.push(todo_data);
+</span><span class="boring">            tasks.push(task_data);
 </span><span class="boring">            position += 1;
 </span><span class="boring">        }
 </span><span class="boring">

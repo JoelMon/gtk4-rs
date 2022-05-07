@@ -547,11 +547,11 @@
     <span class="kw">match</span> <span class="ident">ret</span> {
         <span class="prelude-val">Ok</span>(<span class="ident">closure</span>) =&gt; <span class="ident">closure</span>.<span class="ident">to_glib_full</span>(),
         <span class="prelude-val">Err</span>(<span class="ident">e</span>) =&gt; {
-            <span class="kw-2">*</span><span class="ident">errorptr</span> <span class="op">=</span> <span class="ident">e</span>.<span class="ident">into_raw</span>();
+            <span class="kw-2">*</span><span class="ident">errorptr</span> <span class="op">=</span> <span class="ident">e</span>.<span class="ident">into_glib_ptr</span>();
             <span class="ident">std::ptr::null_mut</span>()
         }
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.62.0-nightly (30f386087 2022-05-05)" ></div>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.62.0-nightly (77652b9ef 2022-05-06)" ></div>
 </body></html>

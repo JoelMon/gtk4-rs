@@ -950,7 +950,7 @@
             <span class="bool-val">true</span>.<span class="ident">into_glib</span>()
         }
         <span class="prelude-val">Err</span>(<span class="ident">e</span>) =&gt; {
-            <span class="kw-2">*</span><span class="ident">error_ptr</span> <span class="op">=</span> <span class="ident">e</span>.<span class="ident">into_raw</span>();
+            <span class="kw-2">*</span><span class="ident">error_ptr</span> <span class="op">=</span> <span class="ident">e</span>.<span class="ident">into_glib_ptr</span>();
             <span class="bool-val">false</span>.<span class="ident">into_glib</span>()
         }
     }
@@ -973,11 +973,11 @@
             <span class="bool-val">true</span>.<span class="ident">into_glib</span>()
         }
         <span class="prelude-val">Err</span>(<span class="ident">e</span>) =&gt; {
-            <span class="kw-2">*</span><span class="ident">error_ptr</span> <span class="op">=</span> <span class="ident">e</span>.<span class="ident">into_raw</span>();
+            <span class="kw-2">*</span><span class="ident">error_ptr</span> <span class="op">=</span> <span class="ident">e</span>.<span class="ident">into_glib_ptr</span>();
             <span class="bool-val">false</span>.<span class="ident">into_glib</span>()
         }
     }
 }
 </code></pre></div>
-</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gdk4" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.62.0-nightly (30f386087 2022-05-05)" ></div>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gdk4" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.62.0-nightly (77652b9ef 2022-05-06)" ></div>
 </body></html>

@@ -434,7 +434,7 @@ pub struct Window {
 </span><span class="boring">                .collect();
 </span><span class="boring">
 </span><span class="boring">            // Insert restored objects into model
-</span><span class="boring">            self.current_tasks().splice(0, 0, &amp;task_objects);
+</span><span class="boring">            self.current_tasks().extend_from_slice(&amp;task_objects);
 </span><span class="boring">        }
 </span><span class="boring">    }
 </span><span class="boring">
@@ -708,7 +708,7 @@ We also add an action which allows us to remove done tasks. </p>
 </span><span class="boring">                .collect();
 </span><span class="boring">
 </span><span class="boring">            // Insert restored objects into model
-</span><span class="boring">            self.current_tasks().splice(0, 0, &amp;task_objects);
+</span><span class="boring">            self.current_tasks().extend_from_slice(&amp;task_objects);
 </span><span class="boring">        }
 </span><span class="boring">    }
 </span><span class="boring">
@@ -945,7 +945,7 @@ If the state is &quot;All&quot; nothing has to be filtered out, so we return <co
 </span><span class="boring">                .collect();
 </span><span class="boring">
 </span><span class="boring">            // Insert restored objects into model
-</span><span class="boring">            self.current_tasks().splice(0, 0, &amp;task_objects);
+</span><span class="boring">            self.current_tasks().extend_from_slice(&amp;task_objects);
 </span><span class="boring">        }
 </span><span class="boring">    }
 </span><span class="boring">
@@ -1180,7 +1180,7 @@ Whenever the state of the key &quot;filter&quot; changes, we call the method <co
 </span><span class="boring">                .collect();
 </span><span class="boring">
 </span><span class="boring">            // Insert restored objects into model
-</span><span class="boring">            self.current_tasks().splice(0, 0, &amp;task_objects);
+</span><span class="boring">            self.current_tasks().extend_from_slice(&amp;task_objects);
 </span><span class="boring">        }
 </span><span class="boring">    }
 </span><span class="boring">
@@ -1727,7 +1727,7 @@ It might be the first time that we started the app and therefore there is no for
                 .collect();
 
             // Insert restored objects into model
-            self.current_tasks().splice(0, 0, &amp;task_objects);
+            self.current_tasks().extend_from_slice(&amp;task_objects);
         }
     }
 <span class="boring">

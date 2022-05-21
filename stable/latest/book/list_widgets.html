@@ -76,7 +76,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">1.</strong> Installation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="installation_linux.html"><strong aria-hidden="true">1.1.</strong> Linux</a></li><li class="chapter-item expanded "><a href="installation_macos.html"><strong aria-hidden="true">1.2.</strong> macOS</a></li><li class="chapter-item expanded "><a href="installation_windows.html"><strong aria-hidden="true">1.3.</strong> Windows</a></li></ol></li><li class="chapter-item expanded "><a href="project_setup.html"><strong aria-hidden="true">2.</strong> Project Setup</a></li><li class="chapter-item expanded "><a href="hello_world.html"><strong aria-hidden="true">3.</strong> Hello World!</a></li><li class="chapter-item expanded "><a href="widgets.html"><strong aria-hidden="true">4.</strong> Widgets</a></li><li class="chapter-item expanded "><a href="gobject_concepts.html"><strong aria-hidden="true">5.</strong> GObject Concepts</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="gobject_memory_management.html"><strong aria-hidden="true">5.1.</strong> Memory Management</a></li><li class="chapter-item expanded "><a href="gobject_subclassing.html"><strong aria-hidden="true">5.2.</strong> Subclassing</a></li><li class="chapter-item expanded "><a href="gobject_values.html"><strong aria-hidden="true">5.3.</strong> Generic Values</a></li><li class="chapter-item expanded "><a href="gobject_properties.html"><strong aria-hidden="true">5.4.</strong> Properties</a></li><li class="chapter-item expanded "><a href="gobject_signals.html"><strong aria-hidden="true">5.5.</strong> Signals</a></li></ol></li><li class="chapter-item expanded "><a href="main_event_loop.html"><strong aria-hidden="true">6.</strong> The Main Event Loop</a></li><li class="chapter-item expanded "><a href="settings.html"><strong aria-hidden="true">7.</strong> Settings</a></li><li class="chapter-item expanded "><a href="saving_window_state.html"><strong aria-hidden="true">8.</strong> Saving Window State</a></li><li class="chapter-item expanded "><a href="list_widgets.html" class="active"><strong aria-hidden="true">9.</strong> List Widgets</a></li><li class="chapter-item expanded "><a href="composite_templates.html"><strong aria-hidden="true">10.</strong> Composite Templates</a></li><li class="chapter-item expanded "><a href="todo_app_1.html"><strong aria-hidden="true">11.</strong> Building a Simple To-Do App</a></li><li class="chapter-item expanded "><a href="actions.html"><strong aria-hidden="true">12.</strong> Actions</a></li><li class="chapter-item expanded "><a href="todo_app_2.html"><strong aria-hidden="true">13.</strong> Manipulating State of To-Do App</a></li><li class="chapter-item expanded "><a href="css.html"><strong aria-hidden="true">14.</strong> CSS</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">1.</strong> Installation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="installation_linux.html"><strong aria-hidden="true">1.1.</strong> Linux</a></li><li class="chapter-item expanded "><a href="installation_macos.html"><strong aria-hidden="true">1.2.</strong> macOS</a></li><li class="chapter-item expanded "><a href="installation_windows.html"><strong aria-hidden="true">1.3.</strong> Windows</a></li></ol></li><li class="chapter-item expanded "><a href="project_setup.html"><strong aria-hidden="true">2.</strong> Project Setup</a></li><li class="chapter-item expanded "><a href="hello_world.html"><strong aria-hidden="true">3.</strong> Hello World!</a></li><li class="chapter-item expanded "><a href="widgets.html"><strong aria-hidden="true">4.</strong> Widgets</a></li><li class="chapter-item expanded "><a href="g_object_concepts.html"><strong aria-hidden="true">5.</strong> GObject Concepts</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="g_object_memory_management.html"><strong aria-hidden="true">5.1.</strong> Memory Management</a></li><li class="chapter-item expanded "><a href="g_object_subclassing.html"><strong aria-hidden="true">5.2.</strong> Subclassing</a></li><li class="chapter-item expanded "><a href="g_object_values.html"><strong aria-hidden="true">5.3.</strong> Generic Values</a></li><li class="chapter-item expanded "><a href="g_object_properties.html"><strong aria-hidden="true">5.4.</strong> Properties</a></li><li class="chapter-item expanded "><a href="g_object_signals.html"><strong aria-hidden="true">5.5.</strong> Signals</a></li></ol></li><li class="chapter-item expanded "><a href="main_event_loop.html"><strong aria-hidden="true">6.</strong> The Main Event Loop</a></li><li class="chapter-item expanded "><a href="settings.html"><strong aria-hidden="true">7.</strong> Settings</a></li><li class="chapter-item expanded "><a href="saving_window_state.html"><strong aria-hidden="true">8.</strong> Saving Window State</a></li><li class="chapter-item expanded "><a href="list_widgets.html" class="active"><strong aria-hidden="true">9.</strong> List Widgets</a></li><li class="chapter-item expanded "><a href="composite_templates.html"><strong aria-hidden="true">10.</strong> Composite Templates</a></li><li class="chapter-item expanded "><a href="todo_1.html"><strong aria-hidden="true">11.</strong> Building a Simple To-Do App</a></li><li class="chapter-item expanded "><a href="actions.html"><strong aria-hidden="true">12.</strong> Actions</a></li><li class="chapter-item expanded "><a href="todo_2.html"><strong aria-hidden="true">13.</strong> Manipulating State of To-Do App</a></li><li class="chapter-item expanded "><a href="css.html"><strong aria-hidden="true">14.</strong> CSS</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -148,11 +148,11 @@ Each label will display an integer starting from 0 and ranging up to 100.</p>
 <pre><code class="language-rust  no_run noplayground"><span class="boring">use gtk::prelude::*;
 </span><span class="boring">use gtk::{Application, ApplicationWindow, Label, ListBox, PolicyType, ScrolledWindow};
 </span><span class="boring">
+</span><span class="boring">const APP_ID: &amp;str = &quot;org.gtk-rs.ListWidgets1&quot;;
+</span><span class="boring">
 </span><span class="boring">fn main() {
 </span><span class="boring">    // Create a new application
-</span><span class="boring">    let app = Application::builder()
-</span><span class="boring">        .application_id(&quot;org.gtk-rs.example&quot;)
-</span><span class="boring">        .build();
+</span><span class="boring">    let app = Application::builder().application_id(APP_ID).build();
 </span><span class="boring">
 </span><span class="boring">    // Connect to &quot;activate&quot; signal of `app`
 </span><span class="boring">    app.connect_activate(build_ui);
@@ -195,11 +195,11 @@ Now we can scroll through our elements.</p>
 <pre><code class="language-rust  no_run noplayground"><span class="boring">use gtk::prelude::*;
 </span><span class="boring">use gtk::{Application, ApplicationWindow, Label, ListBox, PolicyType, ScrolledWindow};
 </span><span class="boring">
+</span><span class="boring">const APP_ID: &amp;str = &quot;org.gtk-rs.ListWidgets1&quot;;
+</span><span class="boring">
 </span><span class="boring">fn main() {
 </span><span class="boring">    // Create a new application
-</span><span class="boring">    let app = Application::builder()
-</span><span class="boring">        .application_id(&quot;org.gtk-rs.example&quot;)
-</span><span class="boring">        .build();
+</span><span class="boring">    let app = Application::builder().application_id(APP_ID).build();
 </span><span class="boring">
 </span><span class="boring">    // Connect to &quot;activate&quot; signal of `app`
 </span><span class="boring">    app.connect_activate(build_ui);
@@ -276,13 +276,13 @@ impl IntegerObject {
 </span></code></pre>
 <p>This number represents the internal state of <code>IntegerObject</code>.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/list_widgets/2/integer_object/imp.rs">listings/list_widgets/2/integer_object/imp.rs</a></p>
-<pre><code class="language-rust  no_run noplayground"><span class="boring">use glib::{ParamFlags, ParamSpec, ParamSpecInt, Value};
+<pre><code class="language-rust  no_run noplayground"><span class="boring">use std::cell::Cell;
+</span><span class="boring">
+</span><span class="boring">use glib::{ParamFlags, ParamSpec, ParamSpecInt, Value};
 </span><span class="boring">use gtk::glib;
 </span><span class="boring">use gtk::prelude::*;
 </span><span class="boring">use gtk::subclass::prelude::*;
 </span><span class="boring">use once_cell::sync::Lazy;
-</span><span class="boring">
-</span><span class="boring">use std::cell::Cell;
 </span><span class="boring">
 </span>// Object holding the state
 #[derive(Default)]
@@ -353,19 +353,18 @@ Neither <code>Label</code> nor any other widget is mentioned here.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/list_widgets/2/main.rs">listings/list_widgets/2/main.rs</a></p>
 <pre><code class="language-rust  no_run noplayground"><span class="boring">mod integer_object;
 </span><span class="boring">
-</span><span class="boring">use gtk::gio;
 </span><span class="boring">use gtk::prelude::*;
 </span><span class="boring">use gtk::{
-</span><span class="boring">    Application, ApplicationWindow, Label, ListView, PolicyType, ScrolledWindow,
+</span><span class="boring">    gio, Application, ApplicationWindow, Label, ListView, PolicyType, ScrolledWindow,
 </span><span class="boring">    SignalListItemFactory, SingleSelection,
 </span><span class="boring">};
 </span><span class="boring">use integer_object::IntegerObject;
 </span><span class="boring">
+</span><span class="boring">const APP_ID: &amp;str = &quot;org.gtk-rs.ListWidgets2&quot;;
+</span><span class="boring">
 </span><span class="boring">fn main() {
 </span><span class="boring">    // Create a new application
-</span><span class="boring">    let app = Application::builder()
-</span><span class="boring">        .application_id(&quot;org.gtk-rs.example&quot;)
-</span><span class="boring">        .build();
+</span><span class="boring">    let app = Application::builder().application_id(APP_ID).build();
 </span><span class="boring">
 </span><span class="boring">    // Connect to &quot;activate&quot; signal of `app`
 </span><span class="boring">    app.connect_activate(build_ui);
@@ -442,19 +441,18 @@ We connect to it to create a <code>Label</code> for every requested widget.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/list_widgets/2/main.rs">listings/list_widgets/2/main.rs</a></p>
 <pre><code class="language-rust  no_run noplayground"><span class="boring">mod integer_object;
 </span><span class="boring">
-</span><span class="boring">use gtk::gio;
 </span><span class="boring">use gtk::prelude::*;
 </span><span class="boring">use gtk::{
-</span><span class="boring">    Application, ApplicationWindow, Label, ListView, PolicyType, ScrolledWindow,
+</span><span class="boring">    gio, Application, ApplicationWindow, Label, ListView, PolicyType, ScrolledWindow,
 </span><span class="boring">    SignalListItemFactory, SingleSelection,
 </span><span class="boring">};
 </span><span class="boring">use integer_object::IntegerObject;
 </span><span class="boring">
+</span><span class="boring">const APP_ID: &amp;str = &quot;org.gtk-rs.ListWidgets2&quot;;
+</span><span class="boring">
 </span><span class="boring">fn main() {
 </span><span class="boring">    // Create a new application
-</span><span class="boring">    let app = Application::builder()
-</span><span class="boring">        .application_id(&quot;org.gtk-rs.example&quot;)
-</span><span class="boring">        .build();
+</span><span class="boring">    let app = Application::builder().application_id(APP_ID).build();
 </span><span class="boring">
 </span><span class="boring">    // Connect to &quot;activate&quot; signal of `app`
 </span><span class="boring">    app.connect_activate(build_ui);
@@ -528,19 +526,18 @@ We connect to it to create a <code>Label</code> for every requested widget.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/list_widgets/2/main.rs">listings/list_widgets/2/main.rs</a></p>
 <pre><code class="language-rust  no_run noplayground"><span class="boring">mod integer_object;
 </span><span class="boring">
-</span><span class="boring">use gtk::gio;
 </span><span class="boring">use gtk::prelude::*;
 </span><span class="boring">use gtk::{
-</span><span class="boring">    Application, ApplicationWindow, Label, ListView, PolicyType, ScrolledWindow,
+</span><span class="boring">    gio, Application, ApplicationWindow, Label, ListView, PolicyType, ScrolledWindow,
 </span><span class="boring">    SignalListItemFactory, SingleSelection,
 </span><span class="boring">};
 </span><span class="boring">use integer_object::IntegerObject;
 </span><span class="boring">
+</span><span class="boring">const APP_ID: &amp;str = &quot;org.gtk-rs.ListWidgets2&quot;;
+</span><span class="boring">
 </span><span class="boring">fn main() {
 </span><span class="boring">    // Create a new application
-</span><span class="boring">    let app = Application::builder()
-</span><span class="boring">        .application_id(&quot;org.gtk-rs.example&quot;)
-</span><span class="boring">        .build();
+</span><span class="boring">    let app = Application::builder().application_id(APP_ID).build();
 </span><span class="boring">
 </span><span class="boring">    // Connect to &quot;activate&quot; signal of `app`
 </span><span class="boring">    app.connect_activate(build_ui);
@@ -616,19 +613,18 @@ Then we pass the model and the factory to the <a href="../docs/gtk4/struct.ListV
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/list_widgets/2/main.rs">listings/list_widgets/2/main.rs</a></p>
 <pre><code class="language-rust  no_run noplayground"><span class="boring">mod integer_object;
 </span><span class="boring">
-</span><span class="boring">use gtk::gio;
 </span><span class="boring">use gtk::prelude::*;
 </span><span class="boring">use gtk::{
-</span><span class="boring">    Application, ApplicationWindow, Label, ListView, PolicyType, ScrolledWindow,
+</span><span class="boring">    gio, Application, ApplicationWindow, Label, ListView, PolicyType, ScrolledWindow,
 </span><span class="boring">    SignalListItemFactory, SingleSelection,
 </span><span class="boring">};
 </span><span class="boring">use integer_object::IntegerObject;
 </span><span class="boring">
+</span><span class="boring">const APP_ID: &amp;str = &quot;org.gtk-rs.ListWidgets2&quot;;
+</span><span class="boring">
 </span><span class="boring">fn main() {
 </span><span class="boring">    // Create a new application
-</span><span class="boring">    let app = Application::builder()
-</span><span class="boring">        .application_id(&quot;org.gtk-rs.example&quot;)
-</span><span class="boring">        .build();
+</span><span class="boring">    let app = Application::builder().application_id(APP_ID).build();
 </span><span class="boring">
 </span><span class="boring">    // Connect to &quot;activate&quot; signal of `app`
 </span><span class="boring">    app.connect_activate(build_ui);
@@ -702,19 +698,18 @@ Then we pass the model and the factory to the <a href="../docs/gtk4/struct.ListV
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/list_widgets/2/main.rs">listings/list_widgets/2/main.rs</a></p>
 <pre><code class="language-rust  no_run noplayground"><span class="boring">mod integer_object;
 </span><span class="boring">
-</span><span class="boring">use gtk::gio;
 </span><span class="boring">use gtk::prelude::*;
 </span><span class="boring">use gtk::{
-</span><span class="boring">    Application, ApplicationWindow, Label, ListView, PolicyType, ScrolledWindow,
+</span><span class="boring">    gio, Application, ApplicationWindow, Label, ListView, PolicyType, ScrolledWindow,
 </span><span class="boring">    SignalListItemFactory, SingleSelection,
 </span><span class="boring">};
 </span><span class="boring">use integer_object::IntegerObject;
 </span><span class="boring">
+</span><span class="boring">const APP_ID: &amp;str = &quot;org.gtk-rs.ListWidgets2&quot;;
+</span><span class="boring">
 </span><span class="boring">fn main() {
 </span><span class="boring">    // Create a new application
-</span><span class="boring">    let app = Application::builder()
-</span><span class="boring">        .application_id(&quot;org.gtk-rs.example&quot;)
-</span><span class="boring">        .build();
+</span><span class="boring">    let app = Application::builder().application_id(APP_ID).build();
 </span><span class="boring">
 </span><span class="boring">    // Connect to &quot;activate&quot; signal of `app`
 </span><span class="boring">    app.connect_activate(build_ui);
@@ -817,18 +812,17 @@ For that we first add the method <code>increase_number</code> to our <code>Integ
 </span><span class="boring">
 </span><span class="boring">use glib::BindingFlags;
 </span><span class="boring">use gtk::prelude::*;
-</span><span class="boring">use gtk::{gio, glib};
 </span><span class="boring">use gtk::{
-</span><span class="boring">    Application, ApplicationWindow, Label, ListView, PolicyType, ScrolledWindow,
-</span><span class="boring">    SignalListItemFactory, SingleSelection,
+</span><span class="boring">    gio, glib, Application, ApplicationWindow, Label, ListView, PolicyType,
+</span><span class="boring">    ScrolledWindow, SignalListItemFactory, SingleSelection,
 </span><span class="boring">};
 </span><span class="boring">use integer_object::IntegerObject;
 </span><span class="boring">
+</span><span class="boring">const APP_ID: &amp;str = &quot;org.gtk-rs.ListWidgets3&quot;;
+</span><span class="boring">
 </span><span class="boring">fn main() {
 </span><span class="boring">    // Create a new application
-</span><span class="boring">    let app = Application::builder()
-</span><span class="boring">        .application_id(&quot;org.gtk-rs.example&quot;)
-</span><span class="boring">        .build();
+</span><span class="boring">    let app = Application::builder().application_id(APP_ID).build();
 </span><span class="boring">
 </span><span class="boring">    // Connect to &quot;activate&quot; signal of `app`
 </span><span class="boring">    app.connect_activate(build_ui);
@@ -920,18 +914,17 @@ One naive approach would be to bind the properties in the &quot;bind&quot; step 
 </span><span class="boring">
 </span><span class="boring">use glib::BindingFlags;
 </span><span class="boring">use gtk::prelude::*;
-</span><span class="boring">use gtk::{gio, glib};
 </span><span class="boring">use gtk::{
-</span><span class="boring">    Application, ApplicationWindow, Label, ListView, PolicyType, ScrolledWindow,
-</span><span class="boring">    SignalListItemFactory, SingleSelection,
+</span><span class="boring">    gio, glib, Application, ApplicationWindow, Label, ListView, PolicyType,
+</span><span class="boring">    ScrolledWindow, SignalListItemFactory, SingleSelection,
 </span><span class="boring">};
 </span><span class="boring">use integer_object::IntegerObject;
 </span><span class="boring">
+</span><span class="boring">const APP_ID: &amp;str = &quot;org.gtk-rs.ListWidgets3&quot;;
+</span><span class="boring">
 </span><span class="boring">fn main() {
 </span><span class="boring">    // Create a new application
-</span><span class="boring">    let app = Application::builder()
-</span><span class="boring">        .application_id(&quot;org.gtk-rs.example&quot;)
-</span><span class="boring">        .build();
+</span><span class="boring">    let app = Application::builder().application_id(APP_ID).build();
 </span><span class="boring">
 </span><span class="boring">    // Connect to &quot;activate&quot; signal of `app`
 </span><span class="boring">    app.connect_activate(build_ui);
@@ -1027,19 +1020,18 @@ Let's see how the &quot;setup&quot; step now works.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/list_widgets/4/main.rs">listings/list_widgets/4/main.rs</a></p>
 <pre><code class="language-rust  no_run noplayground"><span class="boring">mod integer_object;
 </span><span class="boring">
-</span><span class="boring">use gtk::gio;
 </span><span class="boring">use gtk::prelude::*;
 </span><span class="boring">use gtk::{
-</span><span class="boring">    Application, ApplicationWindow, Label, ListView, PolicyType, ScrolledWindow,
+</span><span class="boring">    gio, Application, ApplicationWindow, Label, ListView, PolicyType, ScrolledWindow,
 </span><span class="boring">    SignalListItemFactory, SingleSelection, Widget,
 </span><span class="boring">};
 </span><span class="boring">use integer_object::IntegerObject;
 </span><span class="boring">
+</span><span class="boring">const APP_ID: &amp;str = &quot;org.gtk-rs.ListWidgets4&quot;;
+</span><span class="boring">
 </span><span class="boring">fn main() {
 </span><span class="boring">    // Create a new application
-</span><span class="boring">    let app = Application::builder()
-</span><span class="boring">        .application_id(&quot;org.gtk-rs.example&quot;)
-</span><span class="boring">        .build();
+</span><span class="boring">    let app = Application::builder().application_id(APP_ID).build();
 </span><span class="boring">
 </span><span class="boring">    // Connect to &quot;activate&quot; signal of `app`
 </span><span class="boring">    app.connect_activate(build_ui);
@@ -1122,20 +1114,19 @@ We do that by passing it to a <a href="../docs/gtk4/struct.FilterListModel.html"
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/list_widgets/5/main.rs">listings/list_widgets/5/main.rs</a></p>
 <pre><code class="language-rust  no_run noplayground"><span class="boring">mod integer_object;
 </span><span class="boring">
-</span><span class="boring">use gtk::gio;
 </span><span class="boring">use gtk::prelude::*;
 </span><span class="boring">use gtk::{
-</span><span class="boring">    Application, ApplicationWindow, CustomFilter, CustomSorter, FilterChange,
+</span><span class="boring">    gio, Application, ApplicationWindow, CustomFilter, CustomSorter, FilterChange,
 </span><span class="boring">    FilterListModel, Label, ListView, PolicyType, ScrolledWindow,
 </span><span class="boring">    SignalListItemFactory, SingleSelection, SortListModel, SorterChange, Widget,
 </span><span class="boring">};
 </span><span class="boring">use integer_object::IntegerObject;
 </span><span class="boring">
+</span><span class="boring">const APP_ID: &amp;str = &quot;org.gtk-rs.ListWidgets5&quot;;
+</span><span class="boring">
 </span><span class="boring">fn main() {
 </span><span class="boring">    // Create a new application
-</span><span class="boring">    let app = Application::builder()
-</span><span class="boring">        .application_id(&quot;org.gtk-rs.example&quot;)
-</span><span class="boring">        .build();
+</span><span class="boring">    let app = Application::builder().application_id(APP_ID).build();
 </span><span class="boring">
 </span><span class="boring">    // Connect to &quot;activate&quot; signal of `app`
 </span><span class="boring">    app.connect_activate(build_ui);
@@ -1244,20 +1235,19 @@ Now we pass the filtered model to <a href="../docs/gtk4/struct.SortListModel.htm
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/list_widgets/5/main.rs">listings/list_widgets/5/main.rs</a></p>
 <pre><code class="language-rust  no_run noplayground"><span class="boring">mod integer_object;
 </span><span class="boring">
-</span><span class="boring">use gtk::gio;
 </span><span class="boring">use gtk::prelude::*;
 </span><span class="boring">use gtk::{
-</span><span class="boring">    Application, ApplicationWindow, CustomFilter, CustomSorter, FilterChange,
+</span><span class="boring">    gio, Application, ApplicationWindow, CustomFilter, CustomSorter, FilterChange,
 </span><span class="boring">    FilterListModel, Label, ListView, PolicyType, ScrolledWindow,
 </span><span class="boring">    SignalListItemFactory, SingleSelection, SortListModel, SorterChange, Widget,
 </span><span class="boring">};
 </span><span class="boring">use integer_object::IntegerObject;
 </span><span class="boring">
+</span><span class="boring">const APP_ID: &amp;str = &quot;org.gtk-rs.ListWidgets5&quot;;
+</span><span class="boring">
 </span><span class="boring">fn main() {
 </span><span class="boring">    // Create a new application
-</span><span class="boring">    let app = Application::builder()
-</span><span class="boring">        .application_id(&quot;org.gtk-rs.example&quot;)
-</span><span class="boring">        .build();
+</span><span class="boring">    let app = Application::builder().application_id(APP_ID).build();
 </span><span class="boring">
 </span><span class="boring">    // Connect to &quot;activate&quot; signal of `app`
 </span><span class="boring">    app.connect_activate(build_ui);
@@ -1365,20 +1355,19 @@ Now we pass the filtered model to <a href="../docs/gtk4/struct.SortListModel.htm
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/list_widgets/5/main.rs">listings/list_widgets/5/main.rs</a></p>
 <pre><code class="language-rust  no_run noplayground"><span class="boring">mod integer_object;
 </span><span class="boring">
-</span><span class="boring">use gtk::gio;
 </span><span class="boring">use gtk::prelude::*;
 </span><span class="boring">use gtk::{
-</span><span class="boring">    Application, ApplicationWindow, CustomFilter, CustomSorter, FilterChange,
+</span><span class="boring">    gio, Application, ApplicationWindow, CustomFilter, CustomSorter, FilterChange,
 </span><span class="boring">    FilterListModel, Label, ListView, PolicyType, ScrolledWindow,
 </span><span class="boring">    SignalListItemFactory, SingleSelection, SortListModel, SorterChange, Widget,
 </span><span class="boring">};
 </span><span class="boring">use integer_object::IntegerObject;
 </span><span class="boring">
+</span><span class="boring">const APP_ID: &amp;str = &quot;org.gtk-rs.ListWidgets5&quot;;
+</span><span class="boring">
 </span><span class="boring">fn main() {
 </span><span class="boring">    // Create a new application
-</span><span class="boring">    let app = Application::builder()
-</span><span class="boring">        .application_id(&quot;org.gtk-rs.example&quot;)
-</span><span class="boring">        .build();
+</span><span class="boring">    let app = Application::builder().application_id(APP_ID).build();
 </span><span class="boring">
 </span><span class="boring">    // Connect to &quot;activate&quot; signal of `app`
 </span><span class="boring">    app.connect_activate(build_ui);
@@ -1499,11 +1488,11 @@ This is why we will skip this topic here.</p>
 </span><span class="boring">    ScrolledWindow, SignalListItemFactory, StringList, StringObject, Widget,
 </span><span class="boring">};
 </span><span class="boring">
+</span><span class="boring">const APP_ID: &amp;str = &quot;org.gtk-rs.ListWidgets6&quot;;
+</span><span class="boring">
 </span><span class="boring">fn main() {
 </span><span class="boring">    // Create a new application
-</span><span class="boring">    let app = Application::builder()
-</span><span class="boring">        .application_id(&quot;org.gtk-rs.example&quot;)
-</span><span class="boring">        .build();
+</span><span class="boring">    let app = Application::builder().application_id(APP_ID).build();
 </span><span class="boring">
 </span><span class="boring">    // Connect to &quot;activate&quot; signal of `app`
 </span><span class="boring">    app.connect_activate(build_ui);
@@ -1566,11 +1555,11 @@ Here we can use <a href="../docs/gtk4/struct.StringObject.html"><code>StringObje
 </span><span class="boring">    ScrolledWindow, SignalListItemFactory, StringList, StringObject, Widget,
 </span><span class="boring">};
 </span><span class="boring">
+</span><span class="boring">const APP_ID: &amp;str = &quot;org.gtk-rs.ListWidgets6&quot;;
+</span><span class="boring">
 </span><span class="boring">fn main() {
 </span><span class="boring">    // Create a new application
-</span><span class="boring">    let app = Application::builder()
-</span><span class="boring">        .application_id(&quot;org.gtk-rs.example&quot;)
-</span><span class="boring">        .build();
+</span><span class="boring">    let app = Application::builder().application_id(APP_ID).build();
 </span><span class="boring">
 </span><span class="boring">    // Connect to &quot;activate&quot; signal of `app`
 </span><span class="boring">    app.connect_activate(build_ui);

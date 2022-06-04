@@ -76,7 +76,9 @@
         </a><h2 class="location"></h2>
     </nav>
     <nav class="sidebar"><a class="sidebar-logo" href="../../../gtk4/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
-        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><div class="theme-picker hidden"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="22" height="22" alt="Pick another theme!" src="../../../brush.svg"></button><div id="theme-choices" role="menu"></div></div><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../gtk4/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><button type="button" id="help-button" title="help">?</button><div id="settings-menu" tabindex="-1">
+                                <a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div>
+                        </div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
 <span id="2">2</span>
 <span id="3">3</span>
 <span id="4">4</span>
@@ -401,7 +403,7 @@
     <span class="doccomment">/// refers to. An evaluation always happens in the context of a current object</span>
     <span class="doccomment">/// called `this` (it mirrors the behavior of object-oriented languages),</span>
     <span class="doccomment">/// which may or may not influence the result of the evaluation. Use</span>
-    <span class="doccomment">/// [`ExpressionExtManual::evaluate()`][crate::prelude::ExpressionExtManual::evaluate()] for evaluating an expression.</span>
+    <span class="doccomment">/// [`evaluate()`][Self::evaluate()] for evaluating an expression.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// Various methods for defining expressions exist, from simple constants via</span>
     <span class="doccomment">/// [`ConstantExpression::new()`][crate::ConstantExpression::new()] to looking up properties in a `GObject`</span>
@@ -440,11 +442,11 @@
     <span class="doccomment">/// just a snapshot of the current state at a given time. To get informed about</span>
     <span class="doccomment">/// changes, an expression needs to be &quot;watched&quot; via a [`ExpressionWatch`][crate::ExpressionWatch],</span>
     <span class="doccomment">/// which will cause a callback to be called whenever the value of the expression may</span>
-    <span class="doccomment">/// have changed; [`ExpressionExt::watch()`][crate::prelude::ExpressionExt::watch()] starts watching an expression, and</span>
+    <span class="doccomment">/// have changed; [`watch()`][Self::watch()] starts watching an expression, and</span>
     <span class="doccomment">/// [`ExpressionWatch::unwatch()`][crate::ExpressionWatch::unwatch()] stops.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// Watches can be created for automatically updating the property of an object,</span>
-    <span class="doccomment">/// similar to GObject&#39;s `GBinding` mechanism, by using [`ExpressionExt::bind()`][crate::prelude::ExpressionExt::bind()].</span>
+    <span class="doccomment">/// similar to GObject&#39;s `GBinding` mechanism, by using [`bind()`][Self::bind()].</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// ## GtkExpression in GObject properties</span>
     <span class="doccomment">///</span>
@@ -489,7 +491,7 @@
     <span class="doccomment">/// a [`Expression`][crate::Expression] object is needed like in a `&lt;property&gt;` tag for an expression</span>
     <span class="doccomment">/// property, or in a `&lt;binding name=&quot;property&quot;&gt;` tag to bind a property to an expression.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// To create an property expression, use the `&lt;lookup&gt;` element. It can have a `type`</span>
+    <span class="doccomment">/// To create a property expression, use the `&lt;lookup&gt;` element. It can have a `type`</span>
     <span class="doccomment">/// attribute to specify the object type, and a `name` attribute to specify the property</span>
     <span class="doccomment">/// to look up. The content of `&lt;lookup&gt;` can either be an element specfiying the expression</span>
     <span class="doccomment">/// to use the object, or a string that specifies the name of the object to use.</span>
@@ -586,7 +588,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// The type returned from [`ExpressionExtManual::evaluate()`][crate::prelude::ExpressionExtManual::evaluate()]</span>
+    <span class="doccomment">/// The type returned from [`evaluate()`][Self::evaluate()]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;gtk_expression_get_value_type&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">alias</span> <span class="op">=</span> <span class="string">&quot;get_value_type&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">value_type</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="ident">glib::types::Type</span> {
@@ -600,9 +602,9 @@
     <span class="doccomment">/// Checks if the expression is static.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// A static expression will never change its result when</span>
-    <span class="doccomment">/// [`ExpressionExtManual::evaluate()`][crate::prelude::ExpressionExtManual::evaluate()] is called on it with the same arguments.</span>
+    <span class="doccomment">/// [`evaluate()`][Self::evaluate()] is called on it with the same arguments.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// That means a call to [`ExpressionExt::watch()`][crate::prelude::ExpressionExt::watch()] is not necessary because</span>
+    <span class="doccomment">/// That means a call to [`watch()`][Self::watch()] is not necessary because</span>
     <span class="doccomment">/// it will never trigger a notify.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Returns</span>
@@ -673,5 +675,5 @@
     }
 }
 </code></pre></div>
-</section><section id="search" class="content hidden"></section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.61.0-nightly (8d60bf427 2022-03-19)" ></div>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="gtk4" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.63.0-nightly (a6b8c6954 2022-06-03)" ></div>
 </body></html>

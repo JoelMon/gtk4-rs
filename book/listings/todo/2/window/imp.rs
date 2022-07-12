@@ -16,7 +16,7 @@ use crate::utils::data_path;
 // ANCHOR: struct_default
 // Object holding the state
 #[derive(CompositeTemplate, Default)]
-#[template(resource = "/org/gtk-rs/Todo2/window.ui")]
+#[template(resource = "/org/gtk_rs/Todo2/window.ui")]
 pub struct Window {
     #[template_child]
     pub entry: TemplateChild<Entry>,
@@ -24,7 +24,7 @@ pub struct Window {
     pub menu_button: TemplateChild<MenuButton>,
     #[template_child]
     pub tasks_list: TemplateChild<ListView>,
-    pub current_tasks: RefCell<Option<gio::ListStore>>,
+    pub tasks: RefCell<Option<gio::ListStore>>,
     pub settings: OnceCell<Settings>,
 }
 // ANCHOR_END: struct_default
@@ -73,7 +73,7 @@ impl WindowImpl for Window {
     fn close_request(&self, window: &Self::Type) -> Inhibit {
         // Store task data in vector
         let backup_data: Vec<TaskData> = window
-            .current_tasks()
+            .tasks()
             .snapshot()
             .iter()
             .filter_map(Cast::downcast_ref::<TaskObject>)
